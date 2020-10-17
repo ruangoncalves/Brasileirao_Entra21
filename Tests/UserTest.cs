@@ -7,7 +7,7 @@ namespace Tests
     public class UserTest
     {
         [Fact]
-        public void Should_contains_same_parameters_provided()
+        public void Should_contains_user_CBF()
         {
             var name = "João da Silva";
             var perfil = "CBF";

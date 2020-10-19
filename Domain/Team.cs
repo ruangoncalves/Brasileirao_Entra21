@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Domain
 {
@@ -6,7 +8,7 @@ namespace Domain
     {
         public Guid Id { get; private set; } = Guid.NewGuid();
         public string Name { get; private set; }
-        //public List<Jogador> Jogadores { get; set; }
+        public List<Player> Jogadores { get; set; }
         public int Score { get; set; }
         public int Matchs { get; set; }
         public int Wins { get; set; }
@@ -15,6 +17,12 @@ namespace Domain
         public int Goals { get; set; }
         public int GolsPro { get; set; }
         public int GolsSofrido { get; set; }
+
+        public Team(string name) 
+        {
+            Name = name;       
+        }
+        
    
 
     }

@@ -7,27 +7,19 @@ namespace Tests
     public class UserTest
     {
         [Fact]
-        public void Should_contains_user_CBF()
+        public void Should_register_user_CBF()
         {
-            var name = "João da Silva";
-            var perfil = "CBF";
+            User joao = new User("João da Silva", "CBF");
             
-            var user = new User(name, perfil);
-
-            Assert.Equal(name, user.Name);
-            Assert.Equal(perfil, user.Perfil);
+            Assert.NotNull(joao);
         }
 
         [Fact]
-        public void Should_contains_user_Torcedor()
+        public void Should_register_user_torcedor()
         {
-            var name = "Pedro Tavares";
-            var perfil = "Torcedor";
-            
-            var user = new User(name, perfil);
+            User pedro = new User("Pedro Tavares", "Torcedor");
 
-            Assert.Equal(name, user.Name);
-            Assert.Equal(perfil, user.Perfil);
+            Assert.NotNull(pedro);
         }
     }
 }

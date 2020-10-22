@@ -3,11 +3,12 @@ using System.Collections.Generic;
 
 namespace Domain
 {
-    public class Championship
+    public class Championship 
     {
         public bool championshipStart {get; protected set; } = false;
         public int Rodada { get; private set; }
-        public List<Team> Teams { get; set; } = new List<Team>();
+        private List<Team> teams { get; set; } = new List<Team>();
+        public IReadOnlyCollection<Team> Teams => teams;
 
         public void CreateMatchs(List<Team> teams)
         {
@@ -31,6 +32,11 @@ namespace Domain
 
             return !championshipStart;
         } 
+
+        public void TeamRegister()
+        {
+
+        }
 
 
     }

@@ -26,7 +26,7 @@ namespace Domain
         
         public bool AddListPlayers(List<Player> players)
         {
-            if(players.Count > 32 && players.Count < 16)
+            if(players.Count > 32 || players.Count < 16)
             {
                 return false;
             }
@@ -37,7 +37,7 @@ namespace Domain
         public bool AddPlayer(Player player)
         {
             //Se existir 32 jogadores no time, não pode permitir que eu inclua mais
-            if(Players.Count > 31 && Players.Count < 16)
+            if(Players.Count >= 32 || Players.Count < 16)
             {
                 return false;
             }
@@ -48,7 +48,7 @@ namespace Domain
         public bool RemovePlayer(Player player)
         {
             //Se existir 16 jogadores no time, não pode permitir que eu exclua mais
-            if(Players.Count > 32 && Players.Count < 17)
+            if(Players.Count > 32 || Players.Count <= 16)
             {
                 return false;
             }

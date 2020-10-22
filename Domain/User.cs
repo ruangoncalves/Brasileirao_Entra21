@@ -7,12 +7,12 @@ namespace Domain
     {
         public Guid Id { get; private set; } = Guid.NewGuid();
         public string Name { get; private set; }
-        public string Perfil { get; private set; }
+        public string Profile { get; private set; }
 
-        public User(string name, string perfil)
+        public User(string name, string profile)
         {
             Name = name;
-            Perfil = perfil;
+            Profile = profile;
         }
     }
 }

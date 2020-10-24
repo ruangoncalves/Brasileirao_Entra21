@@ -6,7 +6,7 @@ namespace Domain
     public class Championship 
     {
         public bool championshipStart {get; protected set; } = false;
-        public int Rodada { get; private set; }
+        public int Round { get; private set; }
         private List<Team> _teams { get; set; } = new List<Team>();
         public IReadOnlyCollection<Team> Teams => _teams;
 

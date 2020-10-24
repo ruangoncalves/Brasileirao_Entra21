@@ -5,18 +5,28 @@ namespace Domain
     public class Match
     {
         public Guid Id { get; private set; } = Guid.NewGuid();
-        public string HomeTeam { get; private set; }
-        public string VisitingTeam { get; private set; }
+        public Team HomeTeam { get; private set; }
+        public Team VisitingTeam { get; private set; }
         public int GoalsHomeTeam { get; private set; }
         public int GoalsVisitingTeam { get; private set; }
 
-        public Match(Guid id, string homeTeam, string visitingTeam, int goalsHomeTeam, int goalsVisitingTeam)
+        public void AddHomeTeamToMatch(Team homeTeam)
         {
-            Id = Guid.NewGuid();
             HomeTeam = homeTeam;
+        }
+
+        public void AddVisitingTeamToMatch(Team visitingTeam)
+        {
             VisitingTeam = visitingTeam;
-            GoalsHomeTeam = goalsHomeTeam;
-            GoalsVisitingTeam = goalsVisitingTeam;
+        }
+        public void ScoreGoalsHomeTeam(int goal)
+        {
+            GoalsHomeTeam = goal;
+        }
+
+        public void ScoreGoalsVisitingTeam(int goal)
+        {
+            GoalsVisitingTeam = goal;
         }
     }
 }

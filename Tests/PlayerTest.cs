@@ -9,9 +9,7 @@ namespace Tests
         [Fact]
         public void Should_register_players()
         {
-            Player Roberto  = new Player("Roberto");
-                        
-            Assert.NotNull(Roberto);
+
         }
 
     }

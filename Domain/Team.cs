@@ -7,55 +7,49 @@ namespace Domain
     public class Team 
     {
         public Guid Id { get; private set; } = Guid.NewGuid();
-        public string Name { get; private set; }
-        public List<Player> Players { get; set; } = new List<Player>();
-        public int Score { get; set; } = 0;
-        public int Matchs { get; set; } = 0;
-        public int Wins { get; set; } = 0;
-        public int Draw { get; set; } = 0;
-        public int Loses { get; set; } = 0;
-        public int Goals { get; set; } = 0;
-        public int GoalsPro { get; set; } = 0;
-        public int GoalsSofrido { get; set; } = 0;
-
+        public string TeamName { get; private set; }
+        private List<Player> players { get; set; } = new List<Player>();
+        public IReadOnlyCollection<Player> Players => players;
+        public TeamStatistics Table { get; set;}
+   
         public Team(string name) 
         {
-            Id = Guid.NewGuid();
-            Name = name;       
+            TeamName = name;
+            players = new List<Player>();
+            Id = Guid.NewGuid();       
         }
-        
-        public bool AddListPlayers(List<Player> players)
+         public Guid GetPlayerIdByName(string name)
         {
-            if(players.Count > 32 || players.Count < 16)
+            return players.First(x => x.Name == name).Id;
+        }
+        public bool AddPlayer(Player Player)
+        {
+            if (players.Count > 32 )
             {
                 return false;
             }
-            Players = players;
+            players.Add(Player);
             return true;
         }
-
-        public bool AddPlayer(Player player)
+        public bool RemovePlayer(Player Player)
         {
-            //Se existir 32 jogadores no time, não pode permitir que eu inclua mais
-            if(Players.Count >= 32 || Players.Count < 16)
+            if (players.Count < 16)
             {
                 return false;
             }
-            Players.Add(player);
+
+            players.Remove(Player);
             return true;
         }
-
-        public bool RemovePlayer(Player player)
+        public bool AddPlayersList(List<Player> Players)
         {
-            //Se existir 16 jogadores no time, não pode permitir que eu exclua mais
-            if(Players.Count > 32 || Players.Count <= 16)
+            if (players.Count > 32 || Players.Count+players.Count >=32)
             {
                 return false;
             }
-            Players.Remove(player);
+
+            this.players = Players;
             return true;
         }
-   
-
     }
 }

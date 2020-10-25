@@ -1,16 +1,14 @@
-using System;
 using Xunit;
 using Domain;
 
 namespace Tests
 {
-    public class PlayerTest
+    public class RoundTest
     {
         [Fact]
-        public void Should_register_players()
+        public void Should()
         {
-
+            
         }
-
     }
 }

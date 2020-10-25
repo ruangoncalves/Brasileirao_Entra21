@@ -15,7 +15,7 @@ namespace Domain
             Id = Guid.NewGuid();
         }
         
-        public void MakeGoal()
+        public void GiveGoal()
         {
             this.Goals++;
         }

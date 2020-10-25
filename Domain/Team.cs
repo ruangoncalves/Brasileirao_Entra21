@@ -10,13 +10,17 @@ namespace Domain
         public string TeamName { get; private set; }
         private List<Player> players { get; set; } = new List<Player>();
         public IReadOnlyCollection<Player> Players => players;
-        public TeamStatistics Table { get; set;}
+        public TeamStatistics Table { get; set;} = new TeamStatistics();
    
         public Team(string name) 
         {
             TeamName = name;
-            players = new List<Player>();
-            Id = Guid.NewGuid();       
+            players = new List<Player>();      
+        }
+        public Team(string name, List<Player> playerslist) 
+        {
+            TeamName = name;
+            players = playerslist;     
         }
          public Guid GetPlayerIdByName(string name)
         {
@@ -24,7 +28,7 @@ namespace Domain
         }
         public bool AddPlayer(Player Player)
         {
-            if (players.Count > 32 )
+            if (players.Count >= 32 )
             {
                 return false;
             }
@@ -33,7 +37,7 @@ namespace Domain
         }
         public bool RemovePlayer(Player Player)
         {
-            if (players.Count < 16)
+            if (players.Count <= 16)
             {
                 return false;
             }
@@ -43,13 +47,21 @@ namespace Domain
         }
         public bool AddPlayersList(List<Player> Players)
         {
-            if (players.Count > 32 || Players.Count+players.Count >=32)
+            if (players.Count > 32 || Players.Count+players.Count >32)
             {
                 return false;
             }
 
-            this.players = Players;
+            this.players.AddRange(Players);
             return true;
+        }
+        public void ScoreAGoal()
+        {
+            Table.ScoreMakedGoals();
+            
+            var random = new Random().Next(players.Count);
+            players[random].GiveGoal();
+            
         }
     }
 }

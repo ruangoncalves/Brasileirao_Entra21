@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "nu1LoiHK5UmMDdq51Sus+ulihUEycsxeDpAMATdpwyn7gMuLM3mx1k0N8mjCsJ9spcdEA2eosaJC5+g8rqxjTQ==",
+  "dgSpecHash": "mU3VvfqIcqxFmgFpNYLpSMZwOGUHb2x4pyVOIjFsOIL6abS8BNPw5ZS52ofV0lD2R3wVlGWoxZ4JwXOk0Uzkpw==",
   "success": true,
-  "projectFilePath": "c:\\Users\\usuario\\Desktop\\Entra21\\Brasileirao\\Brasileirao_Entra21\\Tests\\Tests.csproj",
+  "projectFilePath": "C:\\Users\\usuario\\Desktop\\Entra21\\Brasileirao\\Brasileirao_Entra21\\Tests\\Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\usuario\\.nuget\\packages\\coverlet.collector\\1.2.0\\coverlet.collector.1.2.0.nupkg.sha512",
     "C:\\Users\\usuario\\.nuget\\packages\\microsoft.codecoverage\\16.5.0\\microsoft.codecoverage.16.5.0.nupkg.sha512",

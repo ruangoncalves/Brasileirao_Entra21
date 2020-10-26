@@ -3492,11 +3492,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\usuario\\Desktop\\Entra21\\Brasileirao\\Brasileirao_Entra21\\Tests\\Tests.csproj",
+      "projectUniqueName": "C:\\Users\\usuario\\Desktop\\Entra21\\Brasileirao\\Brasileirao_Entra21\\Tests\\Tests.csproj",
       "projectName": "Tests",
-      "projectPath": "c:\\Users\\usuario\\Desktop\\Entra21\\Brasileirao\\Brasileirao_Entra21\\Tests\\Tests.csproj",
+      "projectPath": "C:\\Users\\usuario\\Desktop\\Entra21\\Brasileirao\\Brasileirao_Entra21\\Tests\\Tests.csproj",
       "packagesPath": "C:\\Users\\usuario\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\usuario\\Desktop\\Entra21\\Brasileirao\\Brasileirao_Entra21\\Tests\\obj\\",
+      "outputPath": "C:\\Users\\usuario\\Desktop\\Entra21\\Brasileirao\\Brasileirao_Entra21\\Tests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -3516,8 +3516,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "c:\\Users\\usuario\\Desktop\\Entra21\\Brasileirao\\Brasileirao_Entra21\\Domain\\Domain.csproj": {
-              "projectPath": "c:\\Users\\usuario\\Desktop\\Entra21\\Brasileirao\\Brasileirao_Entra21\\Domain\\Domain.csproj"
+            "C:\\Users\\usuario\\Desktop\\Entra21\\Brasileirao\\Brasileirao_Entra21\\Domain\\Domain.csproj": {
+              "projectPath": "C:\\Users\\usuario\\Desktop\\Entra21\\Brasileirao\\Brasileirao_Entra21\\Domain\\Domain.csproj"
             }
           }
         }

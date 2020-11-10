@@ -84,7 +84,7 @@ namespace Tests
 
 //      <~~~~~~~~~~~~~~~~~~~~~~~[Register User]~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
 
-            champ.RegisterUser("Tiago");            
+            champ.RegisterUser("Tiago");              
 //      <~~~~~~~~~~~~~~~~~~~~~~~[Register Teams]~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
 
             var tryRegist = champ.RegisterTeams(champ.CurrentUser, TeamsMock());
@@ -100,6 +100,7 @@ namespace Tests
 
 //      <~~~~~~~~~~~~~~~~~~~~~~~[Register User]~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
 
+            
             champ.RegisterUser("Tiago", "Pa$Sw0rD");       
             champ.ChampionshipStart(champ.CurrentUser);     
 //      <~~~~~~~~~~~~~~~~~~~~~~~[Register Teams]~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
@@ -211,66 +212,105 @@ namespace Tests
         }
 
 //      <-----------------------------------[Matches Test]------------------------------------------------> 
+//         [Fact]
+//         public void Should_Register_Teams_on_Championship_and_Create_Matches()
+//         {
+// //      <~~~~~~~~~~~~~~~~~~~~~~~[Creating Championship]~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
+//             var champ = new Championship();
+
+// //      <~~~~~~~~~~~~~~~~~~~~~~~[Register User]~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
+
+//             champ.RegisterUser("Tiago", "Pa$Sw0rD");            
+// //      <~~~~~~~~~~~~~~~~~~~~~~~[Register Teams]~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
+//             var teamsmock = TeamsMock();
+//             champ.RegisterTeams(champ.CurrentUser, teamsmock);
+// //      <~~~~~~~~~~~~~~~~~~~~~~~[Register Matches]~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>           
+//             var tryCMat = champ.CreateMatches();
+
+//             Assert.True(tryCMat);
+//             Assert.NotEmpty(champ.Matches);
+//             Assert.Equal(45, champ.Matches.Count);
+
+//         }
+//         [Fact]
+//         public void Should_Register_Teams_on_Championship_and_not_Create_Matches_reason_not_CBF()
+//         {
+// //      <~~~~~~~~~~~~~~~~~~~~~~~[Creating Championship]~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
+//             var champ = new Championship();
+
+// //      <~~~~~~~~~~~~~~~~~~~~~~~[Register User]~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
+
+//             champ.RegisterUser("Tiago", "Pa$Sw0rD");            
+// //      <~~~~~~~~~~~~~~~~~~~~~~~[Register Teams]~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
+//             var teamsmock = TeamsMock();
+//             champ.RegisterTeams(champ.CurrentUser, teamsmock);
+// //      <~~~~~~~~~~~~~~~~~~~~~~~[Register Matches]~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>  
+//             champ.RegisterUser("Leandro");
+
+//             var tryCMat = champ.CreateMatches();
+
+//             Assert.False(tryCMat);
+//             Assert.Empty(champ.Matches);
+
+//         }
+//         [Fact]
+//         public void Should_Register_Teams_on_Championship_and_not_Create_Matches_reason_not_enough_teams()
+//         {
+// //      <~~~~~~~~~~~~~~~~~~~~~~~[Creating Championship]~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
+//             var champ = new Championship();
+
+// //      <~~~~~~~~~~~~~~~~~~~~~~~[Register User]~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
+
+//             champ.RegisterUser("Tiago", "Pa$Sw0rD");            
+// //      <~~~~~~~~~~~~~~~~~~~~~~~[Register Teams]~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
+//             var teamsmock = TeamsMock(7);
+//             champ.RegisterTeams(champ.CurrentUser, teamsmock);
+// //      <~~~~~~~~~~~~~~~~~~~~~~~[Register Matches]~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>           
+//             var tryCMat = champ.CreateMatches();
+
+//             Assert.False(tryCMat);
+//             Assert.Empty(champ.Matches);
+
+//         }
+
+        // [Theory]
+        // [InlineData("Tiago", "Pa$Sw0rD", true)]
+        // [InlineData("Tiago", null, false)]
+        // public void Should_not_start_championship(string name, string pss, bool result)
+        // {
+        //     var champ = new Championship();
+        //     champ.RegisterUser(name, pss);
+        //     var trystart1 = champ.ChampionshipStart(champ.CurrentUser);
+        //     var trystart2 = champ.ChampionshipStart(champ.CurrentUser);
+
+        //     Assert.Equal(result, trystart1);
+        //     Assert.True(result, trystart2);
+        // }
+
         [Fact]
-        public void Should_Register_Teams_on_Championship_and_Create_Matches()
+        public void teste_geral()
         {
-//      <~~~~~~~~~~~~~~~~~~~~~~~[Creating Championship]~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
             var champ = new Championship();
+            champ.RegisterUser("Tiago", "Pa$Sw0rD");
 
-//      <~~~~~~~~~~~~~~~~~~~~~~~[Register User]~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
+            champ.RegisterTeams(champ.CurrentUser, TeamsMock());
 
-            champ.RegisterUser("Tiago", "Pa$Sw0rD");            
-//      <~~~~~~~~~~~~~~~~~~~~~~~[Register Teams]~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
-            var teamsmock = TeamsMock();
-            champ.RegisterTeams(champ.CurrentUser, teamsmock);
-//      <~~~~~~~~~~~~~~~~~~~~~~~[Register Matches]~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>           
-            var tryCMat = champ.CreateMatches();
+            champ.ChampionshipStart()
 
-            Assert.True(tryCMat);
-            Assert.NotEmpty(champ.Matches);
-            Assert.Equal(45, champ.Matches.Count);
 
         }
-        [Fact]
-        public void Should_Register_Teams_on_Championship_and_not_Create_Matches_reason_not_CBF()
-        {
-//      <~~~~~~~~~~~~~~~~~~~~~~~[Creating Championship]~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
-            var champ = new Championship();
 
-//      <~~~~~~~~~~~~~~~~~~~~~~~[Register User]~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
 
-            champ.RegisterUser("Tiago", "Pa$Sw0rD");            
-//      <~~~~~~~~~~~~~~~~~~~~~~~[Register Teams]~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
-            var teamsmock = TeamsMock();
-            champ.RegisterTeams(champ.CurrentUser, teamsmock);
-//      <~~~~~~~~~~~~~~~~~~~~~~~[Register Matches]~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>  
-            champ.RegisterUser("Leandro");
 
-            var tryCMat = champ.CreateMatches();
 
-            Assert.False(tryCMat);
-            Assert.Empty(champ.Matches);
 
-        }
-        [Fact]
-        public void Should_Register_Teams_on_Championship_and_not_Create_Matches_reason_not_enough_teams()
-        {
-//      <~~~~~~~~~~~~~~~~~~~~~~~[Creating Championship]~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
-            var champ = new Championship();
 
-//      <~~~~~~~~~~~~~~~~~~~~~~~[Register User]~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
 
-            champ.RegisterUser("Tiago", "Pa$Sw0rD");            
-//      <~~~~~~~~~~~~~~~~~~~~~~~[Register Teams]~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
-            var teamsmock = TeamsMock(7);
-            champ.RegisterTeams(champ.CurrentUser, teamsmock);
-//      <~~~~~~~~~~~~~~~~~~~~~~~[Register Matches]~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>           
-            var tryCMat = champ.CreateMatches();
 
-            Assert.False(tryCMat);
-            Assert.Empty(champ.Matches);
 
-        }
+
+
+
 //      <~~~~~~~~~~~~~~~~~~~~~~~[Mockings]~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
 
         public List<Team> TeamsMock(int amount)
@@ -495,5 +535,6 @@ namespace Tests
                 new Player("Waldir"),
             }
         };
+        
     }
 }

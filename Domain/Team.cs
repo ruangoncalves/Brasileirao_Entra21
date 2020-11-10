@@ -22,7 +22,7 @@ namespace Domain
             TeamName = name;
             players = playerslist;     
         }
-         public Guid GetPlayerIdByName(string name)
+        public Guid GetPlayerIdByName(string name)
         {
             return players.First(x => x.Name == name).Id;
         }
@@ -37,6 +37,10 @@ namespace Domain
         }
         public bool RemovePlayer(Player Player)
         {
+            if (players.Count <= 16 )
+            {
+                return false;
+            }
             players.Remove(Player);
             return true;
         }

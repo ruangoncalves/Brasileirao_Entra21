@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Domain.Users;
 
 namespace Domain
 {
@@ -12,24 +13,22 @@ namespace Domain
         public List<Match> Matches { get; private set; } = new List<Match>();
         public List<Round> Rounds { get; private set; } = new List<Round>();
         private List<Team> teams { get; set; } = new List<Team>();
-        public int Round {get; private set;} = 0;
         public IReadOnlyCollection<Team> Teams => teams;
+        public int Round {get; private set;} = 0;
         public User CurrentUser {get; private set;}
+        public int MatchesPerRounds {get; private set;}
+
 
 //     <~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[Register]~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
 
-        public void RegisterUser(string name, string password)
-        {
-            CurrentUser = new User(name, password);
-        }
-        public void RegisterUser(string name)
-        {
-            CurrentUser = new User(name);
-        }
 
-        public bool RegisterTeams(User user, List<Team> newteams)
+        public void RegisterUser(string name, Profile profile)
         {
-            if(!CurrentUser.CBF)
+            CurrentUser = new User(name, profile);
+        }
+        public bool RegisterTeams(User user, List<Team> newTeams)
+        {
+            if(!user.CBF)
             {
                 return false;
             }
@@ -37,22 +36,21 @@ namespace Domain
             {
                 return false;
             }
-            
 
-            teams = newteams;
+            teams = newTeams;
             return true;
         }
+
         public bool RemovePlayer(User user, Player player, Guid IdTeam)
         {
             if(!CurrentUser.CBF)
             {
                 return false;
             }
-            if(teams.Count < 0)
+            if(teams.Count < 0 )
             {
                 return false;
             }
-
             teams.Find(x => x.Id == IdTeam).RemovePlayer(player);
             return true;
         }
@@ -67,29 +65,74 @@ namespace Domain
             teams.Find(x => x.Id == IdTeam).AddPlayer(player);
             return true;
         }
-        public bool CreateMatches()
+        
+        private bool CalculateMatchesPerRound()
         {
-            if(!CurrentUser.CBF)
+            var teamsPerMatche = 2;
+
+            if(teams.Count % 2 != 0)
             {
                 return false;
             }
+            var matchesPerRound = teams.Count / teamsPerMatche;
+            MatchesPerRounds = matchesPerRound;
+            return true;
+        }
+
+        private int RoundsNumber()
+        {
+            var roundsNumber = ((teams.Count * (teams.Count - 1)) / 2) / MatchesPerRounds;
+
+            Round = roundsNumber;
+            return roundsNumber;
+        }
+        
+        // private bool playRound(User user)
+        // {
+        //     if(!CurrentUser.CBF)
+        //     {
+        //         return false;
+        //     }
+        //     if (Rounds.Count.Equals(0))
+        //     {
+        //         return false;   
+        //     }
+        //     if (Round > RoundsNumber())
+        //     {
+        //         return false;
+        //     }
+
+        //     var CurrentRound = Rounds.First( round => round.PlayedRound == false);
+            
+        //     foreach (var match in CurrentRound.Matches)
+        //     {
+        //        match.PlayMatch();
+        //     }
+            
+        //     CurrentRound.PlayedRound = true;
+        //     return true;
+        // }
+
+        private bool CreateMatches()
+        {
             if(teams.Count < 8)
             {
                 return false;
             }
+            // var rand = new Random();
+        
+            // for(int i = 0;i < teams.Count;i++)
+            // {
+            //     var x = rand.Next(teams.Count);
+            //     var temp = teams[i];
+            //     teams[i] = teams[x];
+            //     teams[x] = temp;
+            // }
 
-            var rand = new Random();
-            
-            for(int i = 0;i < teams.Count;i++)
-            {
-                var x = rand.Next(teams.Count);
-                var temp = teams[i];
-                teams[i] = teams[x];
-                teams[x] = temp;
-            }
+
             for (int i = 0; i < teams.Count; i++)
             { 
-                for (int j = 0 +i; j < teams.Count; j++)
+                for (int j = i + 1; j < teams.Count; j++)
                 {
                     if(i != j)
                     {
@@ -97,97 +140,65 @@ namespace Domain
                     } 
                 }
             }
+            
             return true;
         }
-        public int RoundsNumber(List<Team> teams)
+
+        
+
+        private bool CreateRound()
         {
-            var roundsNumber = 0;
-            var totalMatches = (teams.Count * (teams.Count-1)) / 2;
-           
-            for (int i = 10; i > 2; i--)
-            {
-                if (totalMatches % i == 0)
-                {
-                    roundsNumber = totalMatches / i;
-                    break;
-                }
-            } 
-            return roundsNumber;
-        }
-        public bool RoundGenerator()
-        { 
-            if(!CurrentUser.CBF)
+            if (Matches.Count % MatchesPerRounds != 0)
             {
                 return false;
             }
-            if (teams.Count < 8)
-            {
-                return false;
-            }
-            if (Matches.Count != RoundsNumber(teams))
-            {
-                return false;
-            }
-            if (Round == RoundsNumber(teams))
-            {
-                return false;
-            }
+            // if (Round == RoundsNumber())
+            // {
+            //     return false;
+            // }
 
             var RoundMatches = new List<Match>();
             
-            for (int i = 0; i < Matches.Count/RoundsNumber(teams) ; i++)
+            for (int i = 0; i < MatchesPerRounds; i++)
             {
-                var index = new Random().Next(Matches.Count);
-                RoundMatches.Add(Matches[index]);
-                Matches.RemoveAt(index);
-            }
+                var temp = new Random().Next(Matches.Count);
+                RoundMatches.Add(Matches[temp]);
 
-            Rounds.Add(new Round(RoundMatches));
+                Rounds.Add(new Round(RoundMatches));
+                Matches.RemoveAt(temp);
+            }
             Round++;
-
             return true;
         }
-
-        public bool playRound(User user)
+        public bool ChampionshipStart(User user, Player player, int gol)
         {
             if(!CurrentUser.CBF)
             {
                 return false;
             }
-            if (Rounds.Count.Equals(0))
-            {
-                return false;   
-            }
-            if (Round > RoundsNumber(teams))
-            {
-                return false;
-            }
 
-            var CurrentRound = Rounds.First( round => round.PlayedRound == false);
-            
-            foreach (var match in CurrentRound.Matches)
-            {
-               match.PlayMatch();
-            }
-            
-            CurrentRound.PlayedRound = true;
-            return true;
-        }
-        public bool ChampionshipStart(User user)
-        {
-            if(!CurrentUser.CBF)
-            {
-                return false;
-            }
+            CalculateMatchesPerRound();
+            RoundsNumber();
+            CreateMatches();
+            CreateRound();
             
             championshipStart = true;
 
+            var rdn = new Random();
+
+            for(int j = 0; j < gol; j++)
+            {
+                player.GiveGoal();
+            }
+
             return true;
-        } 
+          
+        }
+    
 
 //     <~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[Showing]~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
 
-        public List<Player> GetTopScorers()
+        public List<Player>  GetTopScorers()
         {
             var TopScorers = new List<Player>();
 
@@ -253,5 +264,5 @@ namespace Domain
         {
             return Teams.First(team => team.TeamName == teamName).Id;
         }
-    }
-}
+     }
+ }

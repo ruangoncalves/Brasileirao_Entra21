@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\usuario\\Desktop\\Entra21\\Brasileirao\\brasileirao_entra21\\tests\\Tests.csproj": {}
+    "C:\\Users\\usuario\\Desktop\\Entra21\\Brasileirao\\Brasileirao_Entra21\\WebAPI\\WebAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\usuario\\Desktop\\Entra21\\Brasileirao\\brasileirao_entra21\\Domain\\Domain.csproj": {
+    "C:\\Users\\usuario\\Desktop\\Entra21\\Brasileirao\\Brasileirao_Entra21\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\usuario\\Desktop\\Entra21\\Brasileirao\\brasileirao_entra21\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\usuario\\Desktop\\Entra21\\Brasileirao\\Brasileirao_Entra21\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Users\\usuario\\Desktop\\Entra21\\Brasileirao\\brasileirao_entra21\\Domain\\Domain.csproj",
+        "projectPath": "C:\\Users\\usuario\\Desktop\\Entra21\\Brasileirao\\Brasileirao_Entra21\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\usuario\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\usuario\\Desktop\\Entra21\\Brasileirao\\brasileirao_entra21\\Domain\\obj\\",
+        "outputPath": "C:\\Users\\usuario\\Desktop\\Entra21\\Brasileirao\\Brasileirao_Entra21\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -60,14 +60,14 @@
         }
       }
     },
-    "C:\\Users\\usuario\\Desktop\\Entra21\\Brasileirao\\brasileirao_entra21\\tests\\Tests.csproj": {
+    "C:\\Users\\usuario\\Desktop\\Entra21\\Brasileirao\\Brasileirao_Entra21\\WebAPI\\WebAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\usuario\\Desktop\\Entra21\\Brasileirao\\brasileirao_entra21\\tests\\Tests.csproj",
-        "projectName": "Tests",
-        "projectPath": "C:\\Users\\usuario\\Desktop\\Entra21\\Brasileirao\\brasileirao_entra21\\tests\\Tests.csproj",
+        "projectUniqueName": "C:\\Users\\usuario\\Desktop\\Entra21\\Brasileirao\\Brasileirao_Entra21\\WebAPI\\WebAPI.csproj",
+        "projectName": "WebAPI",
+        "projectPath": "C:\\Users\\usuario\\Desktop\\Entra21\\Brasileirao\\Brasileirao_Entra21\\WebAPI\\WebAPI.csproj",
         "packagesPath": "C:\\Users\\usuario\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\usuario\\Desktop\\Entra21\\Brasileirao\\brasileirao_entra21\\tests\\obj\\",
+        "outputPath": "C:\\Users\\usuario\\Desktop\\Entra21\\Brasileirao\\Brasileirao_Entra21\\WebAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -87,8 +87,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\usuario\\Desktop\\Entra21\\Brasileirao\\brasileirao_entra21\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\usuario\\Desktop\\Entra21\\Brasileirao\\brasileirao_entra21\\Domain\\Domain.csproj"
+              "C:\\Users\\usuario\\Desktop\\Entra21\\Brasileirao\\Brasileirao_Entra21\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\usuario\\Desktop\\Entra21\\Brasileirao\\Brasileirao_Entra21\\Domain\\Domain.csproj"
               }
             }
           }
@@ -101,24 +101,6 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "dependencies": {
-            "Microsoft.NET.Test.Sdk": {
-              "target": "Package",
-              "version": "[16.5.0, )"
-            },
-            "coverlet.collector": {
-              "target": "Package",
-              "version": "[1.2.0, )"
-            },
-            "xunit": {
-              "target": "Package",
-              "version": "[2.4.0, )"
-            },
-            "xunit.runner.visualstudio": {
-              "target": "Package",
-              "version": "[2.4.0, )"
-            }
-          },
           "imports": [
             "net461",
             "net462",
@@ -130,6 +112,9 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }

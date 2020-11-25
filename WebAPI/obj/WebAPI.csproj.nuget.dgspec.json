@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\usuario\\Desktop\\Entra21\\Brasileirao\\Brasileirao_Entra21\\WebAPI\\WebAPI.csproj": {}
+    "C:\\Users\\usuario\\Desktop\\Entra21\\Brasileirao\\brasileirao_entra21\\webapi\\WebAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\usuario\\Desktop\\Entra21\\Brasileirao\\Brasileirao_Entra21\\Domain\\Domain.csproj": {
+    "C:\\Users\\usuario\\Desktop\\Entra21\\Brasileirao\\brasileirao_entra21\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\usuario\\Desktop\\Entra21\\Brasileirao\\Brasileirao_Entra21\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\usuario\\Desktop\\Entra21\\Brasileirao\\brasileirao_entra21\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Users\\usuario\\Desktop\\Entra21\\Brasileirao\\Brasileirao_Entra21\\Domain\\Domain.csproj",
+        "projectPath": "C:\\Users\\usuario\\Desktop\\Entra21\\Brasileirao\\brasileirao_entra21\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\usuario\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\usuario\\Desktop\\Entra21\\Brasileirao\\Brasileirao_Entra21\\Domain\\obj\\",
+        "outputPath": "C:\\Users\\usuario\\Desktop\\Entra21\\Brasileirao\\brasileirao_entra21\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -41,6 +41,22 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -60,14 +76,14 @@
         }
       }
     },
-    "C:\\Users\\usuario\\Desktop\\Entra21\\Brasileirao\\Brasileirao_Entra21\\WebAPI\\WebAPI.csproj": {
+    "C:\\Users\\usuario\\Desktop\\Entra21\\Brasileirao\\brasileirao_entra21\\webapi\\WebAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\usuario\\Desktop\\Entra21\\Brasileirao\\Brasileirao_Entra21\\WebAPI\\WebAPI.csproj",
+        "projectUniqueName": "C:\\Users\\usuario\\Desktop\\Entra21\\Brasileirao\\brasileirao_entra21\\webapi\\WebAPI.csproj",
         "projectName": "WebAPI",
-        "projectPath": "C:\\Users\\usuario\\Desktop\\Entra21\\Brasileirao\\Brasileirao_Entra21\\WebAPI\\WebAPI.csproj",
+        "projectPath": "C:\\Users\\usuario\\Desktop\\Entra21\\Brasileirao\\brasileirao_entra21\\webapi\\WebAPI.csproj",
         "packagesPath": "C:\\Users\\usuario\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\usuario\\Desktop\\Entra21\\Brasileirao\\Brasileirao_Entra21\\WebAPI\\obj\\",
+        "outputPath": "C:\\Users\\usuario\\Desktop\\Entra21\\Brasileirao\\brasileirao_entra21\\webapi\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -87,8 +103,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\usuario\\Desktop\\Entra21\\Brasileirao\\Brasileirao_Entra21\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\usuario\\Desktop\\Entra21\\Brasileirao\\Brasileirao_Entra21\\Domain\\Domain.csproj"
+              "C:\\Users\\usuario\\Desktop\\Entra21\\Brasileirao\\brasileirao_entra21\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\usuario\\Desktop\\Entra21\\Brasileirao\\brasileirao_entra21\\Domain\\Domain.csproj"
               }
             }
           }

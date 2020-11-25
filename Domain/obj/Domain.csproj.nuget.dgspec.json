@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\usuario\\Desktop\\Entra21\\Brasileirao\\Brasileirao_Entra21\\Domain\\Domain.csproj": {}
+    "C:\\Users\\usuario\\Desktop\\Entra21\\Brasileirao\\brasileirao_entra21\\Domain\\Domain.csproj": {}
   },
   "projects": {
-    "C:\\Users\\usuario\\Desktop\\Entra21\\Brasileirao\\Brasileirao_Entra21\\Domain\\Domain.csproj": {
+    "C:\\Users\\usuario\\Desktop\\Entra21\\Brasileirao\\brasileirao_entra21\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\usuario\\Desktop\\Entra21\\Brasileirao\\Brasileirao_Entra21\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\usuario\\Desktop\\Entra21\\Brasileirao\\brasileirao_entra21\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Users\\usuario\\Desktop\\Entra21\\Brasileirao\\Brasileirao_Entra21\\Domain\\Domain.csproj",
+        "projectPath": "C:\\Users\\usuario\\Desktop\\Entra21\\Brasileirao\\brasileirao_entra21\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\usuario\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\usuario\\Desktop\\Entra21\\Brasileirao\\Brasileirao_Entra21\\Domain\\obj\\",
+        "outputPath": "C:\\Users\\usuario\\Desktop\\Entra21\\Brasileirao\\brasileirao_entra21\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -41,6 +41,22 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

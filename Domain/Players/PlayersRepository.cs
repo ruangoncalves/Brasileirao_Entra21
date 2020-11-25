@@ -1,15 +1,29 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Domain.Players
 {
     static class PlayersRepository
     {
-        private static List<Player> _player = new List<Player>();
-        public static IReadOnlyCollection<Player> Player => _player;
+        private static List<Player> _players = new List<Player>();
+        public static IReadOnlyCollection<Player> Player => _players;
 
         public static void Add(Player player)
         {
-            _player.Add(player);
+            _players.Add(player);
+        }
+
+        public static Guid? Remove(Guid id)
+        {
+            var player = _players.FirstOrDefault(x => x.Id == id);
+            if (player == null)
+            {
+                return null;
+            }
+
+            _players.Remove(player);
+            return id;
         }
     }
 }
